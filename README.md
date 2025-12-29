@@ -1,2 +1,2 @@
-# eleven
-Eleven ● a Seleen UI theme
+# Eleven
+a Seleen UI theme
