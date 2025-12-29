@@ -1,0 +1,10 @@
+id: "@urbi/eleven"
+metadata:
+  displayName: Eleven
+  description: a Seleen UI theme
+  tags:
+    - weg
+    - toolbar
+styles:
+  "@seelen/fancy-toolbar": !include styles/toolbar.scss
+  "@seelen/weg": !include styles/dock.scss

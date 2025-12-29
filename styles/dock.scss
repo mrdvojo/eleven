@@ -1,0 +1,164 @@
+@import "shared";
+
+//Runtime-Variables for config page in SeelenUI Control Center ~Dvojo
+:root {
+
+  --config-border-radius: 6px; //New border-radius variable ~Dvojo
+
+}
+
+@include scrollbar; //Injects new unified scrollbar ~Dvojo
+
+.taskbar {
+
+  > .bg-layers {
+
+    > .bg-layer-2 { 
+
+      //Forces background of dock container to the left, I DON'T LIKE THIS APPROACH BUT IT IS WHAT IT IS FOR NOW ~Dvojo
+      left: -100vw;
+
+      //Sets background width to double of the view width to force fullscreen width, I DON'T LIKE THIS APPROACH BUT IT IS WHAT IT IS FOR NOW ~Dvojo
+      width: 200vw !important;
+
+      border-radius: 0; //Resets border radius to 0 ~Dvojo
+
+      opacity: 1; //Reverts opacity from .8 back to 1 (initial unset stage) stage ~Dvojo
+
+      /* THIS PART IS DIRECT COPY OF FAKE-ACRYLIC™ EFFECT MIXIN BUT EDITED TO BE USED WITH GRADIENT FEATHER EFFECT */
+      background: linear-gradient(to bottom, rgba(255, 255, 255, .06), transparent),
+                  linear-gradient(to bottom, var(--color-gray-50), transparent);
+
+      filter: opacity(.96);
+      /* END OF FAKE-ACRYLIC™ CODE DIRECT COPY */
+
+    }
+
+  }
+
+}
+
+.weg-item {
+
+  box-shadow: none; //Gets rid of shadow on dock items ~Dvojo
+
+    > .bg-layers { > .bg-layer-1 { background: transparent; } } //Sets the app icon background trasnparent ~Dvojo
+
+    &:hover > .bg-layers > .bg-layer-2 {
+
+      border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+      background: linear-gradient(to bottom, rgba(var(--config-accent-color-rgb), .3), rgba(var(--config-accent-color-rgb), 0) 80%); //Sets the hover colour to opaque light gray / white ~Dvojo
+
+    }
+
+}
+
+.weg-context-menu-container {
+
+  overflow: hidden; //Fixes overflowing of edges ~Dvojo
+
+
+  padding: 2px; //Slightly smaller padding changed from 3 to 2px ~Dvojo
+
+  border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+  @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
+  @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+
+  > .bg-layers {
+
+    > .bg-layer-1 {
+
+      border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+
+      @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+    }
+
+  }
+
+  .ant-dropdown-menu-item { 
+
+    border-radius: calc(var(--config-border-radius) / 2) !important; //Added ability to control border-radius through global variable / 2 by calc() function ~Dvojo
+
+    .weg-context-menu-item-icon {
+
+      width: 1.2em; //Slightly increased icon size, by .2em ~Dvojo
+      height: auto; //Sets the height of icon to auto for keeping aspect-ration ~Dvojo
+
+    }
+
+    &:hover:not(.ant-dropdown-menu-item-danger) { background: var(--color-gray-200) !important; } //Darker higlight background for items excluding special classes ~Dvojo
+
+  }
+
+}
+
+.weg-item-preview-container {
+
+  overflow: hidden; //Fixes overflowing of edges ~Dvojo
+
+  padding: 0; //Resets padding to zero ~Dvojo
+
+  margin: calc(var(--config-padding) * .5); //Controls space between thumbnail window & dock items, just decreased ammount from * 2 to * .5 ~Dvojo
+
+  border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+  @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
+  @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+
+  > .bg-layers {
+
+    > .bg-layer-1 {
+
+      border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+
+      @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+    }
+
+  }
+
+  .weg-item-display-name { padding: 4px 8px; } //Implemented padding around title ~Dvojo
+
+  .weg-item-preview {
+
+    padding: 10px;
+
+    border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+
+    .weg-item-preview-topbar {
+
+      margin: 0; //Resets margin to zero, fixing bottom gap when thumbnail is disabled so it can be done more cleanly ~Dvojo
+
+      .weg-item-preview-title {
+
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-gray-900);
+
+      }
+
+      .weg-item-preview-close:hover { background: var(--color-red-600) !important; } //Implements more classic-like windows [x] colour ~Dvojo
+
+    }
+
+    .weg-item-preview-image-container {
+
+      margin: 0 -10px -10px; //Resets margin on sides ~Dvojo
+      padding: 8px 0 0 0; //Implements top padding to re-create gap between thumbnail & title that was removed in main element ~Dvojo
+
+      width: calc(100% + 20px) !important; //Stretch thumbnail contrainer to fill whole window ~Dvojo
+
+      //Gets rid of the ugly thin border around thumbnail image; sets border-radius to initial state ~Dvojo
+      border: none;
+      border-radius: 0;
+
+      .weg-item-preview-image { object-fit: cover !important; } //Sets tumbnail to fully cover its container ~Dvojo
+
+    }
+
+  }
+
+}

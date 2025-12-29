@@ -1,0 +1,282 @@
+@import "shared";
+
+//Runtime-Variables for config page in SeelenUI Control Center ~Dvojo
+:root {
+
+  --config-border-radius: 6px; //New border-radius variable ~Dvojo
+
+}
+
+
+@mixin media-control {
+
+    .media-control {
+
+        overflow: hidden; //Fixes overflowing of edges ~Dvojo
+
+        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
+        @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+
+        .bg-layer-1 {
+
+            border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+
+            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+        }
+
+        .media-device-group {
+
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 20vh;
+            gap: 6px;
+
+            .media-device {
+
+                display: grid;
+                align-items: center;
+                grid-template-columns: min-content 1fr 50px;
+                gap: 8px;
+
+                .media-device-action {
+
+                    @extend %actionable-button;
+                    justify-content: center;
+
+                }
+
+            }
+
+        }
+
+        .media-device-header {
+
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            padding-bottom: 10px;
+
+            .media-device-back {
+
+                @extend %actionable-button;
+
+            }
+
+            .media-device-title {
+
+                @extend %overflowable-text;
+                flex: 1;
+                font-weight: 600;
+
+            }
+
+        }
+
+        .media-device-mixer {
+
+            @extend %list;
+            padding-right: 10px;
+
+            .media-device-mixer-entry-icon {
+
+                height: 100%;
+                display: grid;
+                align-items: center;
+                grid-template-columns: 1fr 18px;
+                gap: 4px;
+
+            }
+
+        }
+
+        .media-device-footer {
+
+            padding-top: 10px;
+
+            .media-device-footer-button {
+
+                @extend %actionable-button;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--color-gray-600);
+
+            }
+
+        }
+
+    }
+
+    .media-control-volume {
+
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        height: 30px;
+        align-items: center;
+        gap: 4px;
+
+        .media-control-volume-action {
+
+            @extend %actionable-button;
+            height: 30px;
+            width: 50px;
+            justify-content: center;
+
+        }
+
+    }
+
+    .media-control-label {
+
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-gray-600);
+        margin-bottom: 4px;
+        display: block;
+        width: 100%;
+
+        &:not(:first-of-type) {
+
+            margin-top: 10px;
+            padding-top: 4px;
+            border-top: solid 1px var(--color-gray-300);
+
+        }
+
+    }
+
+    .media-device {
+
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: var(--color-gray-700);
+
+    }
+
+    .media-control-session-list {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 6px;
+        gap: 4px;
+
+    }
+
+    .media-session {
+
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        padding: 8px;
+        gap: 8px;
+        height: min-content;
+
+        .media-session-thumbnail-container {
+
+            position: relative;
+            width: 100%;
+
+            .media-session-app-icon {
+
+                position: absolute;
+                width: 25%;
+                aspect-ratio: 1/1;
+                right: 5%;
+                bottom: 5%;
+                object-fit: contain;
+
+            }
+
+            .media-session-thumbnail {
+
+                border-radius: 8px;
+                width: 100%;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                background: #0004;
+
+            }
+
+        }
+
+        .media-session-blurred-thumbnail {
+
+            filter: blur(15px) brightness(125%) contrast(125%);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+
+        }
+
+        .media-session-info {
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+
+            .media-session-title, .media-session-author {
+
+                position: relative;
+                align-self: flex-start;
+                font-size: 0.7rem;
+                text-align: center;
+                min-width: 100%;
+
+                animation: leftToRight 15s infinite alternate ease-in-out; //Slows down the text bouncing animation ~Dvojo
+
+            }
+
+            .media-session-title {
+
+            font-weight: 600;
+            font-size: 1rem;
+
+            }
+
+            .media-session-actions {
+
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 4px;
+
+            }
+
+        }
+
+    }
+
+    .media-notifier {
+
+        overflow: hidden; //Fixes overflowing of edges ~Dvojo
+
+        padding: .2em 1em .2em .2em; //Slightly smaller sizes and also change from pixels to em ~Dvojo
+
+        width: 14em; //Change from pixels to em ~Dvojo
+
+        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
+        @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+
+        .bg-layer-1 {
+
+            border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+
+            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+        }
+
+    }
+
+}

@@ -1,0 +1,66 @@
+@import "shared";
+@import "media-control";
+
+//Runtime-Variables for config page in SeelenUI Control Center ~Dvojo
+:root {
+
+  --config-border-radius: 6px; //New border-radius variable ~Dvojo
+
+}
+
+@include scrollbar; //Injects new unified scrollbar ~Dvojo
+
+.ft-bar {
+
+  > .bg-layers { > .bg-layer-2 {
+
+      @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+    }
+
+  }
+
+}
+
+.ft-bar-item-context-menu-container, .tb-context-menu-container {
+
+  overflow: auto; //Trims overflowing areas to edges (this includes even the scrollbar) ~Dvojo
+
+  min-width: auto; //Changed min-width to auto so now it is determined by longest item ~Dvojo
+
+  border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+
+  @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
+  @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+
+  .bg-layer-1 {
+
+    border-radius: 0; //Resets border radius to 0 ~Dvojo
+
+    @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+
+  }
+
+  .tb-context-menu {
+
+    > li {
+
+      border-radius: calc(var(--config-border-radius) / 2) !important; //Added ability to control border-radius through global variable / 2 by calc() function ~Dvojo
+
+      &:hover { background: var(--color-gray-200) !important; } //Darker higlight background ~Dvojo
+
+    }
+
+    .tb-context-menu-module-item {
+
+      max-width: 40vw; //Changed width to max-width and switched from 240px to 40vw ~Dvojo
+
+      gap: .6em; //Uses em instead of pixels + slightly smaller gap ~Dvojo
+
+    }
+
+  }
+
+}
+
+@include media-control;

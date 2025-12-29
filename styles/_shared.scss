@@ -1,0 +1,62 @@
+//Fake-Acrylic™ effect a.k.a. fakrylic Mixin ~Dvojo
+@mixin fakrylic {
+
+    //Applies complex gradient with various shades of system accent colour that is defined by user to mimic acrylic effect ~Dvojo
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .06), rgba(255, 255, 255, .06)),
+                linear-gradient(to bottom, var(--color-gray-50), var(--color-gray-50));
+
+    filter: opacity(.96); //Applies slight transparency for whole background ~Dvojo
+
+} 
+
+//Fake-Acrylic™ effect a.k.a. fakrylic-border Mixin, needs to be separate from the main effect for it to function properly ~Dvojo
+@mixin fakrylic-border {
+
+    border: 1px solid rgba(255, 255, 255, .1); //Applies thin white opaque border to finish Windows 11 look ~Dvojo
+
+}
+
+//Drop-Shadow effect for popups ~Dvojo
+@mixin drop-shadow {
+
+    -webkit-box-shadow: 0 0 2em 0 rgba(0,0,0, .5);
+    box-shadow: 0 0 2em 0 rgba(0,0,0, .5);
+
+}
+
+//Custom scrollbar Mixin for unified scrollbar fitting across the Windows 11 UI ~Dvojo
+@mixin scrollbar {
+
+    ::-webkit-scrollbar { display: none; } //Hides both scrollbars but keeps functionality ~Dvojo
+ 
+// ------------------------------------------------------------------------------------------
+// Alternate scrollbars, decided to turn them completly off in the end but kept this original 
+// set-up might make it switchable through config later ¯\_(ツ)_/¯ ~Dvojo
+// ------------------------------------------------------------------------------------------
+//
+// ::-webkit-scrollbar {
+//
+//      width: .4em; //Sets the vertical scrollbar width ~Dvojo
+//      height: .4em; //Sets the horizontal scrollbar width ~Dvojo
+//
+//  }
+//
+//  ::-webkit-scrollbar-track { 
+//
+//      margin: var(--config-border-radius) 0 var(--config-border-radius) 0; //Offsets top & bottom margin of track-areas with variable border-radius to keep the thumb visible ~Dvojo
+//
+//      background: transparent; //Sets the track areas to be transparent ~Dvojo
+//
+//  }
+//
+//  ::-webkit-scrollbar-thumb {
+//
+//      background: rgba(var(--config-accent-color-rgb), 1); //Changes the track handle into system accent colour ~Dvojo
+//
+//      border-radius: var(--config-border-radius); //Dynamic border-radius controlled by user config ~Dvojo
+//
+//      &:hover { background: rgba(var(--config-accent-lighter-color-rgb), 1); } //Changes the hover state for track handle into system lighter accent colour ~Dvojo
+//
+//  }
+
+}
