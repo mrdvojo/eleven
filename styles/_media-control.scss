@@ -1,9 +1,9 @@
 @import "shared";
 
-//Runtime-Variables for config page in SeelenUI Control Center ~Dvojo
+//Runtime-Variables for config page in SeelenUI Control Center ~URB!
 :root {
 
-  --config-border-radius: 6px; //New border-radius variable ~Dvojo
+  --config-border-radius: 6px; //New border-radius variable ~URB!
 
 }
 
@@ -12,18 +12,18 @@
 
     .media-control {
 
-        overflow: hidden; //Fixes overflowing of edges ~Dvojo
+        overflow: hidden; //Fixes overflowing of edges ~URB!
 
-        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~URB!
 
-        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
-        @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~URB!
+        @include drop-shadow; //Injects Drop-Shadow effect ~URB!
 
         .bg-layer-1 {
 
-            border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+            border-radius: 0; //Resets border-radius back to initial state ~URB!
 
-            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~URB!
 
         }
 
@@ -232,7 +232,7 @@
                 text-align: center;
                 min-width: 100%;
 
-                animation: leftToRight 15s infinite alternate ease-in-out; //Slows down the text bouncing animation ~Dvojo
+                animation: leftToRight 15s infinite alternate ease-in-out; //Slows down the text bouncing animation ~URB!
 
             }
 
@@ -258,22 +258,22 @@
 
     .media-notifier {
 
-        overflow: hidden; //Fixes overflowing of edges ~Dvojo
+        overflow: hidden; //Fixes overflowing of edges ~URB!
 
-        padding: .2em 1em .2em .2em; //Slightly smaller sizes and also change from pixels to em ~Dvojo
+        padding: .2em 1em .2em .2em; //Slightly smaller sizes and also change from pixels to em ~URB!
 
-        width: 14em; //Change from pixels to em ~Dvojo
+        width: 14em; //Change from pixels to em ~URB!
 
-        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~Dvojo
+        border-radius: var(--config-border-radius); //Added ability to control border-radius through global variable ~URB!
 
-        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~Dvojo
-        @include drop-shadow; //Injects Drop-Shadow effect ~Dvojo
+        @include fakrylic-border; //Injects Fake-Acrylic™ Border to match the rest of Windows 11 look ~URB!
+        @include drop-shadow; //Injects Drop-Shadow effect ~URB!
 
         .bg-layer-1 {
 
-            border-radius: 0; //Resets border-radius back to initial state ~Dvojo
+            border-radius: 0; //Resets border-radius back to initial state ~URB!
 
-            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~Dvojo
+            @include fakrylic; //Injects custom made acrylic material Fake-Acrylic™ to match the rest of Windows 11 look ~URB!
 
         }
 
